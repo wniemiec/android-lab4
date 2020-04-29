@@ -46,14 +46,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onActivityResult(
-            int requestCode, int resultCode, Intent data)
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         if(requestCode==1 && resultCode==RESULT_OK)
         {
-            Bundle extras = data.getExtras();
-            String nowy = (String)extras.get("wpis");
-            target.add(nowy);
+           Bundle extras = data.getExtras();
+
+            Animal nowy = (Animal)extras.getSerializable("nowy");
+
+            this.db.dodaj(nowy);
+
+            adapter.changeCursor(db.lista());
             adapter.notifyDataSetChanged();
         }
     }

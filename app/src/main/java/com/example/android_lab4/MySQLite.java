@@ -32,7 +32,6 @@ public class MySQLite extends SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS animals");
                 onCreate(db);
-
     }
 
     public void dodaj(Animal zwierz){
@@ -50,8 +49,7 @@ public class MySQLite extends SQLiteOpenHelper
     public void usun(String id) {
         SQLiteDatabase db =
                 this.getWritableDatabase();
-        db.delete("animals", "_id = ?",
-                new String[] { id });
+        db.delete("animals", "_id = ?", new String[] { id });
         db.close();
     }
 
