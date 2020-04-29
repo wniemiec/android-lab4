@@ -3,6 +3,7 @@ package com.example.android_lab4;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.*;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,12 +11,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
 
     private ArrayList<String> target;
-    private ArrayAdapter adapter;
+    private SimpleCursorAdapter adapter;
+    MySQLite db = new MySQLite(this);
 
 
     @Override
