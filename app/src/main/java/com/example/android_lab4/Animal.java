@@ -10,7 +10,6 @@ public class Animal implements Serializable
     private float wielkosc;
     private String opis;
 
-
     public Animal()
     { }
 
